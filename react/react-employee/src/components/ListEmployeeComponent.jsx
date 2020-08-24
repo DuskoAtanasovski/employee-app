@@ -23,6 +23,9 @@ class ListEmployeeComponent extends Component {
       });
     });
   }
+  viewEmployee(id) {
+    this.props.history.push(`/view-employee/${id}`);
+  }
 
   editEmployee(id) {
     this.props.history.push(`/add-employee/${id}`);
@@ -55,7 +58,7 @@ class ListEmployeeComponent extends Component {
               <tr>
                 <th>Employee First Name</th>
                 <th>Employee Last Name</th>
-                <th>Employee Email Id</th>
+                <th>Employee Email Address</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -68,7 +71,7 @@ class ListEmployeeComponent extends Component {
                   <td>
                     <button
                       onClick={() => this.editEmployee(employee.id)}
-                      className="btn btn-info"
+                      className="btn btn-success"
                     >
                       Update
                     </button>
@@ -78,6 +81,13 @@ class ListEmployeeComponent extends Component {
                       className="btn btn-danger"
                     >
                       Delete
+                    </button>
+                    <button
+                      style={{ marginLeft: "10px" }}
+                      onClick={() => this.viewEmployee(employee.id)}
+                      className="btn btn-info"
+                    >
+                      View
                     </button>
                   </td>
                 </tr>
